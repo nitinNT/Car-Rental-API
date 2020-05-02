@@ -5,7 +5,7 @@ const Fawn=require("fawn")
 
 //import the  mongo database uri connection defined in keys file 
 const {MONGO_URI} = require('./keys')
-const PORT = 5000
+const PORT = process.env.PORT||5000;
 
 //routes defined 
 const apiRoutes = require("./routes/api-routes")
