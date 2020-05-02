@@ -1,6 +1,12 @@
 # Car-Rental-API
 Car Rental Company has many cars of the same model type and the user can book the car of a particular model depending on availability of that car model. Authentication is required to update, delete and add the cars in the database.
 
+**How to Run**<br/>
+1. Clone the repo
+2. Goto that directory
+3. run command npm install
+4. run command npm run start 
+
 **Creating the user:**<br/>
 ![image](https://user-images.githubusercontent.com/40491064/80866934-0fc5ad00-8caf-11ea-9efd-9e9b798f3a1b.png)
 
