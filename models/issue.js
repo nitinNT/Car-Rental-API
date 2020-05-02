@@ -1,5 +1,4 @@
 const mongoose= require("mongoose")
-const {ObjectId} = mongoose.Schema.Types
 
 const issueSchema= new mongoose.Schema({
     user:{
@@ -25,14 +24,17 @@ const issueSchema= new mongoose.Schema({
         })
     },
     issueDate:{
-        type:Date,
+        type:String,
         required:true,
-        default:Date.now
+        default: new Date().toString()
     },
     returnDate:{
-        type:Date,
-        default:Date.now
-
+        type:String,
+        required:true
+    },
+    returned:{
+        type:Boolean,
+        default:false
     }
 
 })

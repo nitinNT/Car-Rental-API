@@ -16,14 +16,14 @@ exports.issueCar= async(req,res,next)=>{
     if (!user) return res.status(400).send(userIdError);
 
     //getting the required car details 
-    const car = await Car.findOne({model: req.body.model});
+    const car = await Car.findOne({model: req.body.model,name:req.body.name});
     if (!car) return res.status(400).send(carIdError);
 
     //look the fetched user id and car id 
     let issue= await Issue.lookup(user._id,car._id)
     
     // if issue is already there 
-    if (issue)
+    if (issue && issue.returned==false)
         return res.status(400).send(issueError);
     
     // if number of stock is zero or all car are booked
@@ -86,31 +86,35 @@ exports.getMyIssue=async(req,res,next)=>{
 
 //Return the car 
 exports.returnCar=async(req,res)=>{
-    const user = await User.findOne({username : req.body.username});
-    if (!user) return res.status(400).send(userIdError);
+    const issue = await Issue.findById(req.params.id)
 
+    //if issue not exists in database then give error
+    if(!issue)
+    return res.status(400).send("Rental does not exist or not returned ")
 
-    const car = await Car.findOne({model: req.body.model});
+    //if its already returned then give already returned
+    if (issue.returned==true){
+        return res.status(400).send("Rental Already Returned")
+    }
+
+    const car = await Car.findById(issue.car._id);
     if (!car) return res.status(400).send(carIdError);
 
-    //look the issue in database 
-    let issue= await Issue.lookup(user._id,car._id)
-
-    //if already exists 
-    if(!issue)
-    return res.status(400).send("Rental does not exist or already processed")
-
-
-    
-    returndate=issue.returnDate
+    //check the return date of particular issue  
+    returndate=issue.returnDate.split("/")
     var today= new Date()
 
     //Comparison with today timestamp and return date of issue the update the avaliable stock and number of booked cars
-    if (returndate.getDate()==today.getDate()){
+    if (returndate[0]==today.getDate()){
+        issue.returned=true
+        await issue.save()
         car.numberInStock=car.numberInStock+1
         car.numberOfBooking=car.numberOfBooking-1
         await car.save()
     }
+    else{
+        res.send('Returned date is not today come back on returned date ')
+    }
+    res.send(issue)
     
-   res.send(issue)
 }

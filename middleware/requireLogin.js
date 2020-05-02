@@ -1,7 +1,8 @@
 const jwt=require("jsonwebtoken")
-const {JWT_SECRET}= require("../keys")
+const {JWT_SECRET}= require("../keys")//secret key for generating the tokens
 const User= require("../models/user")
-    
+
+//giving the token after logging in 
 module.exports=(req,res,next)=>{
     const {authorization} = req.headers
     if (!authorization){
@@ -16,7 +17,7 @@ module.exports=(req,res,next)=>{
         const {_id}= payload
         User.findById(_id).then(userdata=>{
             req.user=userdata
-            next()    
+            next() //executing next task   
         })
         
     })

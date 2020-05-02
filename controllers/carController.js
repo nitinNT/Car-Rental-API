@@ -8,10 +8,11 @@ exports.createCar=async(req,res,next)=>{
     res.status(201).send(car);
 }
 
-//Update the car when numnber of Bookings is 0
+//Update the car details  when numnber of Bookings is 0
 exports.updateCar=async(req,res)=>{
     if (res.car.numberOfBooking==0){
         res.car.numberInStock=req.body.numberInStock
+        res.car.dailyRentalRate=req.body.dailyRentalRate
         const updatedCar =await res.car.save()
         res.send(updatedCar)
     }
@@ -39,6 +40,7 @@ function setValues(req){
     return{
         name:req.body.name,
         model:req.body.model,
+        fuelType:req.body.fuelType,
         numberOfSeats:req.body.numberOfSeats,
         numberInStock:req.body.numberInStock,
         dailyRentalRate:req.body.dailyRentalRate

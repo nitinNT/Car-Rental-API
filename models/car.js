@@ -1,7 +1,6 @@
 const mongoose= require("mongoose")
 
 const carSchema = new mongoose.Schema({
-
     name:{
         type:String,
         required:true
@@ -11,7 +10,6 @@ const carSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-
     numberOfSeats:{
         type:Number,
         required:true
@@ -28,6 +26,9 @@ const carSchema = new mongoose.Schema({
     dailyRentalRate:{
         type:Number,
         required:true
+    },
+    fuelType:{
+        type:String
     }
 })
 
