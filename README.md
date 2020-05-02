@@ -16,7 +16,7 @@ URL:https://carrental-temple.herokuapp.com/api/
 Step1) Login to get token<br/>
 ![image](https://user-images.githubusercontent.com/40491064/80867233-bc545e80-8cb0-11ea-8697-7fa45847364d.png)
 
-The token is put into the Authorization header to serve the update request.
+The token is put into the Authorization header to serve the update request.<br/>
 Step2) Add the car<br/>
 ![image](https://user-images.githubusercontent.com/40491064/80867243-dbeb8700-8cb0-11ea-8489-fa6f9c8e47dd.png)
 
