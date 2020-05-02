@@ -26,7 +26,7 @@ router.post("/issue",rentalController.issueCar)
 router.post("/me",rentalController.getMyIssue)
 router.get("/issue",rentalController.getAll)
 router.get('/issue/:id',rentalController.getIssueDetails)
-router.get('/return/:id',rentalController.returnCar)
+router.put('/return/:id',rentalController.returnCar)
 
 
 module.exports=router
