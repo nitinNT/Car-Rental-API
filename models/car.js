@@ -19,8 +19,7 @@ const carSchema = new mongoose.Schema({
     numberInStock:{
         type:Number,
         required:true,
-        min:0,
-        max:100
+        min:0
     },
     numberOfBooking:{
         type:Number,
@@ -28,9 +27,7 @@ const carSchema = new mongoose.Schema({
     },
     dailyRentalRate:{
         type:Number,
-        required:true,
-        min:100,
-        max:1000
+        required:true
     }
 })
 

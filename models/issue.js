@@ -4,7 +4,7 @@ const {ObjectId} = mongoose.Schema.Types
 const issueSchema= new mongoose.Schema({
     user:{
         type: new mongoose.Schema({
-            name:{
+            username:{
                 type:String,
                 required:true
             }
