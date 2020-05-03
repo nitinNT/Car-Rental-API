@@ -27,7 +27,7 @@ Step2) Add the car<br/>
 ![image](https://user-images.githubusercontent.com/40491064/80867283-16edba80-8cb1-11ea-8ea6-c8a83c3df3da.png)
  
 **The return status of the issue is changed when the id put in URL and returned date is today’s date:**<br/>
-![image](https://user-images.githubusercontent.com/40491064/80867309-34bb1f80-8cb1-11ea-9734-636737df441d.png)
+![image](https://user-images.githubusercontent.com/40491064/80907490-51993680-8d35-11ea-889b-1de87802b9be.png)
 
 **Number of Bookings of the car is updated and stock is updated when the car is returned:**<br/>
 ![image](https://user-images.githubusercontent.com/40491064/80867324-469cc280-8cb1-11ea-9ce3-54a3dec80b83.png)
