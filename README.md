@@ -1,8 +1,6 @@
 # Car-Rental-API
 Car Rental Company has many cars of the same model type and the user can book the car of a particular model depending on availability of that car model. Authentication is required to update, delete and add the cars in the database.
 
-URL:https://carrental-temple.herokuapp.com/api/
-
 **How to Run**<br/>
 1. Clone the repo
 2. Goto that directory
